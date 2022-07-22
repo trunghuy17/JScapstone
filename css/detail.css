@@ -39,8 +39,22 @@ header .header-container .header-top .contact .cart {
   align-items: center;
   margin-right: 10px;
 }
-header .header-container .header-top .contact .cart img {
-  vertical-align: revert;
+header .header-container .header-top .contact .cart .btnCart {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+header .header-container .header-top .contact .cart .btnCart img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+header .header-container .header-top .contact .cart .btnCart img:hover {
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 header .header-container .header-top .contact .cart span {
   font-size: 30px;
@@ -375,4 +389,49 @@ footer .footer-bottom .container .borderLeft {
   border: none;
   outline: none;
   color: black;
+}
+
+.activeSize {
+  background-color: red;
+}
+
+.toggle {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 400px;
+  height: 30px;
+  background-color: #1ED90E;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
+.toggle p {
+  padding: 5px;
+  color: black;
+}
+
+#tableProduct div img {
+  width: 100%;
+  height: 100%;
+}
+#tableProduct div .name {
+  font-size: 18px;
+  font-weight: 700;
+}
+#tableProduct div .countItem {
+  font-size: 16px;
+  font-weight: 400;
+}
+#tableProduct div .price {
+  font-size: 16px;
+  font-weight: 400;
+}
+#tableProduct div .totalPrice {
+  font-size: 16px;
+  font-weight: 400;
+}
+#tableProduct div .row button {
+  border: none;
+  outline: none;
 }

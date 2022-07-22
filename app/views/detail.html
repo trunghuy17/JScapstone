@@ -14,6 +14,35 @@
 </head>
 
 <body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Danh sách sản phẩm đã chọn</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" id="foodForm">
+                        <div class="row " id="tableProduct">
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <header>
         <div class="header-container">
             <div class="header-top d">
@@ -22,7 +51,11 @@
                 </div>
                 <div class="contact">
                     <div class="cart">
-                        <img src="../../assets/images/cart.png" alt="cart" class="text-light">
+                        <!-- Button trigger modal -->
+                        <button id="displayBtnCart" type="button" class="btnCart" data-toggle="modal"
+                            data-target="#exampleModal">
+                            <img src="../../assets/images/cart.png" alt="cart" class="text-light">
+                        </button>
                         <span id="numberItem">(1)</span>
                     </div>
                     <a href="#" class="login">login</a>
@@ -83,10 +116,10 @@
                         </div>
                         <div class="swapper-prodSize">
                             <button class="size ">41</button>
-                        </div>
-                        <div class="swapper-prodSize">
-                            <button class="size ">42</button>
-                        </div> -->
+                        </div>-->
+                        <!-- <div class="swapper-prodSize activeSize">
+                            <button class="size " onclick="buyNow(1)">43</button>
+                        </div>  -->
                     </div>
                     <div class="prodPrice">
                         <p id="priceItem">85$</p>
@@ -269,6 +302,11 @@
             </div>
         </div>
     </footer>
+
+    <div class="toggle">
+        <p>Them san phan thanh cong</p>
+    </div>
+
     <div class="ontop" id="myBtn" onclick="topFunction()">
         <a href="#" class="top ">
             <i class="fa fa-chevron-up" aria-hidden="true"></i>
@@ -288,7 +326,6 @@
         function topFunction() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
-
         }
     </script>
 
@@ -307,8 +344,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
         integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script>
+        function buyNow(id){
+    console.log(id)
+}
+    </script> -->
 
-    <script type ="module" src="../controllers/detail/detail.js"></script>
+    <script type="module" src="../controllers/detail/detail.js"></script>
 </body>
 
 </html>

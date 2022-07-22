@@ -4,5 +4,5 @@ export default class Product{
     price=0;
     description='';
     size=[];
-    relatedProducts=[];
+    relatedProducts=[]; 
 } 
