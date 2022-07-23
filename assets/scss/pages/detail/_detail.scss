@@ -111,7 +111,6 @@ header {
     }
     .productInfo {
       .prodName {
-        // padding-top: 55px;
         h2 {
           @include text($text-3xl, $text-light);
         }
@@ -179,6 +178,7 @@ header {
             @include text($text-3xl, $text-regular);
             &:hover{
               box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.58);
+              outline: none;
             }
           }
         }
@@ -204,6 +204,7 @@ header {
         margin-top: 7px;
         button {
           border: none;
+          outline: none;
           background-color: transparent;
           color: $text-c1-light;
           position: absolute;
@@ -235,23 +236,23 @@ header {
         margin-bottom: 47px;
         .card {
           border: none;
-          width: 334px;
-          height: 369px;
+          width: 350px;
+          height: 400px;
           background-color: $bg-c2-light;
           img {
             width: 220px;
-            height: 156px;
+            height: 170px;
             margin: auto;
           }
           .name {
             @include text($text-24xl, $text-light);
             line-height: 29px;
-            padding-left: 23px;
+            padding-left: 20px;
           }
           .shortDes {
             @include text($text-2xl, $text-light);
             line-height: 24px;
-            padding-left: 23px;
+            padding-left: 20px;
             color: $text-c3-light;
           }
           .cardFooter {
@@ -343,6 +344,12 @@ footer {
   height: 50px;
   background-color: $bg-c1-red;
   cursor: pointer;
+  border-radius:10px;
+  &:hover {
+    background:$bg-c2-linear;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.58);
+    color: white;
+  }
   .top {
     position: absolute;
     top: 50%;
@@ -355,19 +362,17 @@ footer {
       @include text($text-2xl, $text-bold);
     }
     &:hover {
-      background-color: $bg-c1-brown;
-      color: black;
+      color: white;
     }
   }
 }
 .ontop:hover {
-  background-color: $bg-c1-brown;
+  background:$bg-c2-linear;
 }
-.ontop:hover .top {
-  background-color: $bg-c1-brown;
+.ontop:hover .top { 
   border: none;
   outline: none;
-  color: black;
+  color: white;
 }
 
 .activeSize{
@@ -412,14 +417,21 @@ footer {
        @include text($text-base, $text-regular);
     }
     .row{
+      text-align: center;
       button{
         border: none;
         outline: none;
       }
       span{
-        // width: 100%;
-        // text-align: center;
+        max-width: 24%;
       }
+    }
+  }
+  .total{
+    @include text($text-xl, $text-bold);
+    span{
+      @include text($text-xl, $text-regular);
+      color: $text-c1-red;
     }
   }
 }

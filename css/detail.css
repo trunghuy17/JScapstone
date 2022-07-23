@@ -189,6 +189,7 @@ header .header-container .header-bottom .navbar .nav-item .nav-link {
 }
 .productItem .row .productInfo .prodCount .swap-prodCount button:hover {
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
+  outline: none;
 }
 .productItem .row .productInfo .prodCount .swapSp-prodCount {
   position: relative;
@@ -213,6 +214,7 @@ header .header-container .header-bottom .navbar .nav-item .nav-link {
 }
 .productItem .row .productInfo .btnAdd button {
   border: none;
+  outline: none;
   background-color: transparent;
   color: #F5F5F5;
   position: absolute;
@@ -246,26 +248,26 @@ header .header-container .header-bottom .navbar .nav-item .nav-link {
 }
 .productRelate .container .prodItem .prodCard .card {
   border: none;
-  width: 334px;
-  height: 369px;
+  width: 350px;
+  height: 400px;
   background-color: #F8F8F8;
 }
 .productRelate .container .prodItem .prodCard .card img {
   width: 220px;
-  height: 156px;
+  height: 170px;
   margin: auto;
 }
 .productRelate .container .prodItem .prodCard .card .name {
   font-size: 24px;
   font-weight: 300;
   line-height: 29px;
-  padding-left: 23px;
+  padding-left: 20px;
 }
 .productRelate .container .prodItem .prodCard .card .shortDes {
   font-size: 20px;
   font-weight: 300;
   line-height: 24px;
-  padding-left: 23px;
+  padding-left: 20px;
   color: #CBC9C9;
 }
 .productRelate .container .prodItem .prodCard .card .cardFooter {
@@ -361,6 +363,12 @@ footer .footer-bottom .container .borderLeft {
   height: 50px;
   background-color: red;
   cursor: pointer;
+  border-radius: 10px;
+}
+.ontop:hover {
+  background: linear-gradient(270deg, rgba(62, 32, 248, 0.9) 5.14%, #D017EE 89.71%);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
+  color: white;
 }
 .ontop .top {
   position: absolute;
@@ -376,19 +384,17 @@ footer .footer-bottom .container .borderLeft {
   font-weight: 700;
 }
 .ontop .top:hover {
-  background-color: #E1B067;
-  color: black;
+  color: white;
 }
 
 .ontop:hover {
-  background-color: #E1B067;
+  background: linear-gradient(270deg, rgba(62, 32, 248, 0.9) 5.14%, #D017EE 89.71%);
 }
 
 .ontop:hover .top {
-  background-color: #E1B067;
   border: none;
   outline: none;
-  color: black;
+  color: white;
 }
 
 .activeSize {
@@ -431,7 +437,22 @@ footer .footer-bottom .container .borderLeft {
   font-size: 16px;
   font-weight: 400;
 }
+#tableProduct div .row {
+  text-align: center;
+}
 #tableProduct div .row button {
   border: none;
   outline: none;
+}
+#tableProduct div .row span {
+  max-width: 24%;
+}
+#tableProduct .total {
+  font-size: 18px;
+  font-weight: 700;
+}
+#tableProduct .total span {
+  font-size: 18px;
+  font-weight: 400;
+  color: #FC0303;
 }

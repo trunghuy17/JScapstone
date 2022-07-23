@@ -1,15 +1,15 @@
 import Product from '../../models/Product.js';
 import { Cart } from '../../models/Cart.js'
 let cart = new Cart();
-//  cart.arrProduct;
+
 
 window.onload = function () {
-    getByIDProduct(12);
-    let numberItem = document.querySelector('#numberItem');
-    numberItem.innerHTML = `(${cart.arrProduct.length})`;
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('productId');
+    getByIDProduct(myParam);
+    cart.getProductLocalStorage();
+    document.querySelector('#numberItem').innerHTML = `(${cart.arrProduct.length})`;
 }
-
-
 
 let product = new Product();
 
@@ -56,7 +56,6 @@ let renderView = (product) => {
     price.innerHTML = product.price + '$';
 }
 
-
 //increase the number of products
 document.querySelector("#upItem").onclick = () => {
     let toggle = document.querySelector('.toggle');
@@ -64,11 +63,11 @@ document.querySelector("#upItem").onclick = () => {
     let currentCount = Number(count.innerHTML);
     let quantity = product.quantity;
     if (currentCount > quantity) {
-        toggle.innerHTML=`<p class="bg-danger">Sản phẩm ${product.name} đã hết </p>`;
+        toggle.innerHTML = `<p class="bg-danger">Sản phẩm ${product.name} đã hết </p>`;
         toggle.style.opacity = 1;
-        setTimeout(()=>{
+        setTimeout(() => {
             toggle.style.opacity = 0;
-        },2000)
+        }, 2000)
     } else {
         currentCount += 1;
     }
@@ -88,7 +87,6 @@ document.querySelector("#downItem").onclick = () => {
     }
     count.innerHTML = currentCount;
 }
-
 
 //render relatedProduct
 let renderRelatedProducts = (product) => {
@@ -125,7 +123,7 @@ window.buyNow = (id) => {
     document.documentElement.scrollTop = 0;
 }
 
-
+//add class active
 window.addActive = (size) => {
     let arrSize = document.querySelectorAll('.swapper-prodSize .size');
     for (let sizeItem of arrSize) {
@@ -139,20 +137,20 @@ window.addActive = (size) => {
 
 //onclick button add to Cart
 document.querySelector('#btnAddToCart').onclick = () => {
-    let toggle= document.querySelector('.toggle');
+    let toggle = document.querySelector('.toggle');
     let size = document.querySelector('.swapper-prodSize .activeSize');
     if (size == undefined) {
-        toggle.innerHTML=`<p class="bg-danger">Hãy chon size cho sản phẩm ${product.name}</p>`;
+        toggle.innerHTML = `<p class="bg-danger">Hãy chon size cho sản phẩm ${product.name}</p>`;
         toggle.style.opacity = 1;
-        setTimeout(()=>{
+        setTimeout(() => {
             toggle.style.opacity = 0;
-        },2000)
+        }, 2000)
     } else {
         size = size.innerHTML;
         let img = document.querySelector('.productImg img').src;
         let name = document.querySelector("#nameItem").innerHTML;
         let price = document.querySelector("#priceItem").innerHTML;
-        let countItem = document.querySelector('#countItem').innerHTML;
+        let countItem = Number(document.querySelector('#countItem').innerHTML);
         let id = product.id;
         price = Number(price.replace('$', ''));
         let prod = {
@@ -166,46 +164,110 @@ document.querySelector('#btnAddToCart').onclick = () => {
                 return this.price * this.countItem;
             }
         }
-
-        // let check = cart.arrProduct.find()
         cart.arrProduct.push(prod);
         toggle.style.opacity = 1;
-        toggle.innerHTML=`<p class="bg-success">Thêm sản phẩm ${prod.name} thành công</p>`;
-        setTimeout(()=>{
+        toggle.innerHTML = `<p class="bg-success">Thêm sản phẩm ${prod.name} thành công</p>`;
+        setTimeout(() => {
             toggle.style.opacity = 0;
-        },1000)
+        }, 1000)
         let numberItem = document.querySelector('#numberItem');
         numberItem.innerHTML = `(${cart.arrProduct.length})`;
+
     }
+    cart.saveProductLocalStorage();
 }
 
-document.querySelector('#displayBtnCart').onclick =() =>{
-    let htmlContent='';
-    console.log(cart.arrProduct)
-    for(let prod of cart.arrProduct){
-         htmlContent+=`
-            <div class="col-4">
+//Show product information on cart
+document.querySelector('#displayBtnCart').onclick = () => {
+    cart.checkSimilarProductInList();
+    renderModal();
+    cart.saveProductLocalStorage();
+}
+
+
+//render the modal
+let renderModal = () => {
+    let htmlContent = '';
+    for (let prod of cart.arrProduct) {
+        prod = {
+            ...prod, totalPrice: function () {
+                return prod.price * prod.countItem;
+            }
+        }
+        htmlContent += `
+            <div class="col-3">
                 <img src="${prod.img}"/>   
             </div>
-            <div class="col-8">
+            <div class="col-6">
                 <div class="name">${prod.name}</div>
+                <div class="sizeItem">size: ${prod.size}</div>
                 <div class="countItem">Số lượng: ${prod.countItem}</div>
                 <div class="price">Giá tiền 1 sản phẩm: ${prod.price}$</div>
                 <div class="totalPrice">Tông tiền: ${prod.totalPrice()}$</div>
                 <div class="row pl-3">
-                   <button class="col-1">-</button>                   
-                   <span class="col-1">1</span>
-                   <button class="col-1">+</button>
+                   <button type="button" class="col-1" onclick=(modalDown('${prod.id}','${prod.countItem}','${prod.size}'))>-</button>                   
+                   <span class="col-1" id="modalCount">${prod.countItem}</span>
+                   <button type="button" class="col-1"  onclick=(modalUp('${prod.id}','${prod.countItem}','${prod.size}'))>+</button>
                 </div>
             </div>
-            
+            <div class="col-1">
+                    <button type="button" class="btn btn-danger" onclick=(deleteProd('${prod.id}','${prod.size}'))>Delete</button>                   
+            </div>
          `
     }
-    document.querySelector('#tableProduct').innerHTML=htmlContent;
+    document.querySelector('#tableProduct').innerHTML = `${htmlContent}
+        <div class="total">Tổng giá:<span > ${cart.total()}$</span><div>
+    `;
+
 }
 
 
+//modal button down 
+window.modalDown = (id, count, size) => {
+    if (count > 1) {
+        count -= 1;
+        for (let prod of cart.arrProduct) {
+            if (prod.id == id && prod.size == size) {
+                prod.countItem = count;
+                renderModal()
+                break;
+            }
+        }
+    }
+    cart.saveProductLocalStorage();
+}
+
+//modal button up
+window.modalUp = (id, count, size) => {
+
+    if (count <= product.quantity) {
+        count = Number(count) + 1;
+        for (let prod of cart.arrProduct) {
+            if (prod.id == id && prod.size == size) {
+                prod.countItem = count;
+                renderModal()
+                break;
+            }
+        }
+    } else {
+        document.querySelector('.countItem').innerHTML = 'Sold out'
+    }
+    cart.saveProductLocalStorage();
+}
+
+//delete product
+window.deleteProd = (id, size) => {
+    let index = cart.arrProduct.findIndex(item => item.id == id && item.size == size);
+    cart.arrProduct.splice(index, 1);
+    renderModal();
+    cart.saveProductLocalStorage();
+    document.querySelector('#numberItem').innerHTML = `(${cart.arrProduct.length})`;
+}
 
 
-
-
+//delete All Products in cart.arrProduct
+document.querySelector('#deleteAll').onclick=()=>{
+    cart.arrProduct=[];
+    cart.saveProductLocalStorage();
+    document.querySelector('#numberItem').innerHTML = `(${cart.arrProduct.length})`;
+}
