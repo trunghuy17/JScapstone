@@ -1,4 +1,7 @@
-function checkRong(value, selectorError, name) {
+
+//check rỗng
+
+export function checkEmpty(value, selectorError, name) {
     if (value.trim() == '') {
         document.querySelector(selectorError).innerHTML = name + ' invalid';
         return false;
@@ -9,7 +12,7 @@ function checkRong(value, selectorError, name) {
 }
 //check dinh dang 
 
-function checkName(value, selectorError, name) {
+export function checkName(value, selectorError, name) {
     var regexLetter = /^[A-Z a-z]+$/;
     if (regexLetter.test(value.trim())) {
         document.querySelector(selectorError).innerHTML = '';
@@ -22,7 +25,7 @@ function checkName(value, selectorError, name) {
 
 //check tat ca la so
 
-function checkSo(value, selectorError, name) {
+export function checkNumber(value, selectorError, name) {
     var regexNumber = /^[0-9]+$/;
     if (regexNumber.test(value.trim())) {
         document.querySelector(selectorError).innerHTML = '';
@@ -34,7 +37,7 @@ function checkSo(value, selectorError, name) {
 }
 
 //check email 
-function checkEmail(value, selectorError, name) {
+export function checkEmail(value, selectorError, name) {
     var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\ [[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (regexEmail.test(value.trim())) {
         document.querySelector(selectorError).innerHTML = '';
@@ -46,7 +49,7 @@ function checkEmail(value, selectorError, name) {
 }
 
 //check mat khau
-function checkMatkhau(value, selectorError, name) {
+export function checkPassword(value, selectorError, name) {
     var regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{0,}$/;
     if (regexPassword.test(value.trim())) {
         document.querySelector(selectorError).innerHTML = '';
@@ -58,8 +61,7 @@ function checkMatkhau(value, selectorError, name) {
 }
 
 //check do dai
-
-function checkDoDai(value, selectorError, name, minLength, maxLength) {
+export function checkLength(value, selectorError, name, minLength, maxLength) {
     if (value.trim().length > maxLength || value.trim().length < minLength) {
         document.querySelector(selectorError).innerHTML = name + ' do dai tu ' + minLength + ' den ' + maxLength;
         return false;
@@ -69,7 +71,7 @@ function checkDoDai(value, selectorError, name, minLength, maxLength) {
 }
 
 //check date
- function checkDate(value, selectorError, name){
+export function checkDate(value, selectorError, name){
     // console.log(typeof (value));
     var regexDate=/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
 	if(regexDate.test(value)){

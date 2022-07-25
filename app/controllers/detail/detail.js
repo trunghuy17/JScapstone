@@ -8,7 +8,7 @@ window.onload = function () {
     const myParam = urlParams.get('productId');
     getByIDProduct(myParam);
     cart.getProductLocalStorage();
-    document.querySelector('#numberItem').innerHTML = `(${cart.arrProduct.length})`;
+    document.querySelector('#numberItem').innerHTML = `(${cart.totalCount()})`;
 }
 
 let product = new Product();
@@ -164,22 +164,22 @@ document.querySelector('#btnAddToCart').onclick = () => {
                 return this.price * this.countItem;
             }
         }
-        cart.arrProduct.push(prod);
+        cart.arrProducts.push(prod);
         toggle.style.opacity = 1;
         toggle.innerHTML = `<p class="bg-success">Thêm sản phẩm ${prod.name} thành công</p>`;
         setTimeout(() => {
             toggle.style.opacity = 0;
         }, 1000)
-        let numberItem = document.querySelector('#numberItem');
-        numberItem.innerHTML = `(${cart.arrProduct.length})`;
-
+        document.querySelector('#numberItem').innerHTML = `(${cart.totalCount()})`;
     }
+    cart.checkSimilarProductInList();
     cart.saveProductLocalStorage();
+    
 }
 
 //Show product information on cart
 document.querySelector('#displayBtnCart').onclick = () => {
-    cart.checkSimilarProductInList();
+    document.querySelector('#numberItem').innerHTML = `(${cart.totalCount()})`;
     renderModal();
     cart.saveProductLocalStorage();
 }
@@ -188,7 +188,7 @@ document.querySelector('#displayBtnCart').onclick = () => {
 //render the modal
 let renderModal = () => {
     let htmlContent = '';
-    for (let prod of cart.arrProduct) {
+    for (let prod of cart.arrProducts) {
         prod = {
             ...prod, totalPrice: function () {
                 return prod.price * prod.countItem;
@@ -226,7 +226,7 @@ let renderModal = () => {
 window.modalDown = (id, count, size) => {
     if (count > 1) {
         count -= 1;
-        for (let prod of cart.arrProduct) {
+        for (let prod of cart.arrProducts) {
             if (prod.id == id && prod.size == size) {
                 prod.countItem = count;
                 renderModal()
@@ -235,6 +235,7 @@ window.modalDown = (id, count, size) => {
         }
     }
     cart.saveProductLocalStorage();
+    document.querySelector('#numberItem').innerHTML = `(${cart.totalCount()})`;
 }
 
 //modal button up
@@ -242,7 +243,7 @@ window.modalUp = (id, count, size) => {
 
     if (count <= product.quantity) {
         count = Number(count) + 1;
-        for (let prod of cart.arrProduct) {
+        for (let prod of cart.arrProducts) {
             if (prod.id == id && prod.size == size) {
                 prod.countItem = count;
                 renderModal()
@@ -253,21 +254,23 @@ window.modalUp = (id, count, size) => {
         document.querySelector('.countItem').innerHTML = 'Sold out'
     }
     cart.saveProductLocalStorage();
+    document.querySelector('#numberItem').innerHTML = `(${cart.totalCount()})`;
+
 }
 
 //delete product
 window.deleteProd = (id, size) => {
-    let index = cart.arrProduct.findIndex(item => item.id == id && item.size == size);
-    cart.arrProduct.splice(index, 1);
+    let index = cart.arrProducts.findIndex(item => item.id == id && item.size == size);
+    cart.arrProducts.splice(index, 1);
     renderModal();
     cart.saveProductLocalStorage();
-    document.querySelector('#numberItem').innerHTML = `(${cart.arrProduct.length})`;
+    document.querySelector('#numberItem').innerHTML = `(${cart.totalCount()})`;
 }
 
 
-//delete All Products in cart.arrProduct
+//delete All Products in cart.arrProducts
 document.querySelector('#deleteAll').onclick=()=>{
-    cart.arrProduct=[];
+    cart.arrProducts=[];
     cart.saveProductLocalStorage();
-    document.querySelector('#numberItem').innerHTML = `(${cart.arrProduct.length})`;
+    document.querySelector('#numberItem').innerHTML = `(${cart.totalCount()})`;
 }

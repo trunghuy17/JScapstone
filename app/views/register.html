@@ -16,7 +16,118 @@
 </head>
 
 <body>
+    <header>
+        <div class="header-container">
+            <div class="header-top d">
+                <a class="logo" href="../../index.html">
+                    <img src="../../assets/images/logo.png" alt="logo">
+                </a>
+                <div class="contact">
+                    <div class="cart">
+                        <!-- Button trigger modal -->
+                        <button id="displayBtnCart" type="button" class="btnCart" data-toggle="modal"
+                            data-target="#exampleModal">
+                            <img src="../../assets/images/cart.png" alt="cart" class="text-light">
+                        </button>
+                        <span id="numberItem">(1)</span>
+                    </div>
+                    <a href="#" class="login">login</a>
+                    <a href="../views/register.html" class="register">register</a>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item ">
+                                <a class="nav-link active " href="../../index.html">Home <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Men</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Woman</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Kid</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Sport</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="register">
+            <div class="container">
+                <h1 class="text-center">Register</h1>
+                <form>
+                    <div class="row">
+                        <div class="col-5 register-left ">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="" id="email" />
+                                <div class="validation-email"></div>
 
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="text" class="" id="password" />
+                                <div class="validation-password"></div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordConfirm">Password confirm</label>
+                                <input type="text" class="" id="passwordConfirm" />
+                                <div class="validation-passwordConfirm"></div>
+
+                            </div>
+                        </div>
+                        <div class="col-5 register-right">
+                            <div class="form-group ">
+                                <label for="name">Name</label>
+                                <input type="text" class="" id="name" />
+                                <div class="validation-name"></div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="phone">Phone</label>
+                                <input type="text" class="" id="phone" />
+                                <div class="validation-phone"></div>
+                            </div>
+                            <div class="row form-gender">
+                                <label for="" class="col-3 gender">Gender</label>
+                                <div class="col-9 form-checked">
+                                    <ul class="row">
+                                        <li class="type col-6">
+                                            <input id="male" type="radio" name="selector" checked>
+                                            <label for="male">Male</label>
+                                            <div class="check"></div>
+                                        </li>
+
+                                        <li class="type col-6">
+                                            <input id="female" type="radio" name="selector">
+                                            <label for="female">Female</label>
+                                            <div class="check"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group Submit">
+                                <button class="btnSubmit" id="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+    </main>
 
 
     <!-- Optional JavaScript -->
