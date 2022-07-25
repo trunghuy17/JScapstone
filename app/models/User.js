@@ -3,5 +3,5 @@ export class User {
     password = '';
     name = '';
     phone = '';
-    gender = '';
+    gender = true;
 }
