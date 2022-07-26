@@ -1,14 +1,12 @@
 body {
   position: relative;
 }
-html{
-  scroll-behavior: smooth;
-}
+
 
 header {
-  .header-container {
-    .header-top {
-      background-color: $bg-c1-dark;
+  .header-top {
+    background-color: $bg-c1-dark;
+    .container {
       color: $text-c2-light;
       padding: 5px 30px;
       display: flex;
@@ -26,20 +24,20 @@ header {
           display: flex;
           align-items: center;
           margin-right: 10px;
-          .btnCart{
+          .btnCart {
             position: relative;
             width: 50px;
             height: 50px;
-            background-color:transparent;
+            background-color: transparent;
             border: none;
-            outline: none;  
+            outline: none;
             img {
               position: absolute;
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%);
-              &:hover{
-                box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+              &:hover {
+                box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
               }
             }
           }
@@ -64,7 +62,9 @@ header {
         margin-right: 20px;
       }
     }
-    .header-bottom {
+  }
+  .header-bottom {
+    .container {
       padding: 0 30px;
       .navbar {
         background-color: $bg-c1-light !important;
@@ -95,8 +95,8 @@ header {
 .productItem {
   padding-top: 58px;
   width: 100%;
-  .row {
-    margin: 0;
+  height: 530px;
+  .container{
     .productImg {
       position: relative;
       img {
@@ -113,11 +113,13 @@ header {
       .prodName {
         h2 {
           @include text($text-3xl, $text-light);
+          padding-bottom: 5px;
         }
       }
       .prodDescrition {
         p {
           @include text($text-base, $text-regular);
+          padding-bottom: 5px;
         }
       }
       h5 {
@@ -126,6 +128,7 @@ header {
         padding-bottom: 20px;
       }
       .prodSize {
+        padding-bottom: 11px;
         .swapper-prodSize {
           position: relative;
           width: 50px;
@@ -143,8 +146,8 @@ header {
             outline: none;
             @include text($text-24xl, $text-semiBold);
             line-height: 29px;
-            &:hover{
-              box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.58);
+            &:hover {
+              box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
             }
           }
         }
@@ -176,8 +179,8 @@ header {
             outline: none;
             background-color: transparent;
             @include text($text-3xl, $text-regular);
-            &:hover{
-              box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.58);
+            &:hover {
+              box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
               outline: none;
             }
           }
@@ -214,8 +217,8 @@ header {
           width: 100%;
           height: 100%;
           @include text($text-24xl, $text-medium);
-          &:hover{
-            box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.58);
+          &:hover {
+            box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
           }
         }
       }
@@ -226,23 +229,25 @@ header {
 .productRelate {
   margin-top: 55px;
   .container {
-    padding-left: 100px;
+    padding-left: 120px;
     h2 {
       @include text($text-4xl, $text-regular);
     }
     .prodItem {
+      margin: 0;
+      padding: 0;
       margin-top: 89px;
       .prodCard {
-        margin-bottom: 47px;
+        margin-bottom: 120px;
         .card {
           border: none;
-          width: 350px;
-          height: 400px;
+          width: 334px;
+          height: 369px;
           background-color: $bg-c2-light;
           img {
             width: 220px;
-            height: 170px;
-            margin: auto;
+            height: 156px;
+            margin:45px 57px;
           }
           .name {
             @include text($text-24xl, $text-light);
@@ -264,8 +269,8 @@ header {
               height: 64px;
               background-color: $bg-c1-brown;
               @include text($text-24xl, $text-extraLight);
-              &:hover{
-                box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.58);
+              &:hover {
+                box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
               }
             }
             .priceItem {
@@ -291,7 +296,7 @@ footer {
     padding: 20px 0 10px 0;
     background-color: $bg-c2-light;
     .container {
-    padding: 0 15px;
+      padding: 0 15px;
       h3 {
         @include text($text-3xl, $text-bold);
       }
@@ -344,10 +349,10 @@ footer {
   height: 50px;
   background-color: $bg-c1-red;
   cursor: pointer;
-  border-radius:10px;
+  border-radius: 10px;
   &:hover {
-    background:$bg-c2-linear;
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.58);
+    background: $bg-c2-linear;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
     color: white;
   }
   .top {
@@ -367,72 +372,68 @@ footer {
   }
 }
 .ontop:hover {
-  background:$bg-c2-linear;
+  background: $bg-c2-linear;
 }
-.ontop:hover .top { 
+.ontop:hover .top {
   border: none;
   outline: none;
   color: white;
 }
 
-.activeSize{
-  background-color:red;
+.activeSize {
+  background-color: red;
 }
 
-
-.toggle{
-  position:absolute;
-  top:55px;
-  right:0;
+.toggle {
+  position: absolute;
+  top: 55px;
+  right: 0;
   width: 400px;
   height: 30px;
-  background-color:$bg-c1-green;
+  background-color: $bg-c1-green;
   opacity: 0;
   overflow: hidden;
   transition: all 0.3s linear;
-  p{
+  p {
     padding: 5px;
-    color:black;
+    color: black;
   }
 }
 
-#tableProduct{  
-  div{
-    img{
+#tableProduct {
+  div {
+    img {
       width: 100%;
       height: 100%;
     }
-    .name{
+    .name {
       @include text($text-xl, $text-bold);
     }
-    .countItem{
+    .countItem {
       @include text($text-base, $text-regular);
-
     }
-    .price{
+    .price {
       @include text($text-base, $text-regular);
-
     }
-    .totalPrice{
-       @include text($text-base, $text-regular);
+    .totalPrice {
+      @include text($text-base, $text-regular);
     }
-    .row{
+    .row {
       text-align: center;
-      button{
+      button {
         border: none;
         outline: none;
       }
-      span{
+      span {
         max-width: 24%;
       }
     }
   }
-  .total{
+  .total {
     @include text($text-xl, $text-bold);
-    span{
+    span {
       @include text($text-xl, $text-regular);
       color: $text-c1-red;
     }
   }
 }
-

@@ -28,7 +28,6 @@ document.querySelector('#submit').onclick = (e) => {
         user.gender = false;
     }
     validationError(user);
-
 }
 //validation error
 let validationError = (user) => {
@@ -76,29 +75,26 @@ let validationError = (user) => {
             arrValidation.push(validation);
         }
     }
-    let check = false;
-    check = arrValidation.find(item => item == false);
+    let check = true;
+    check = arrValidation.every(item => item == true);
     if (check) {
-        // let userCopy = { ...user };
-        // if (userCopy.hasOwnProperty('passwordConfirm')) {
-        //     delete userCopy.passwordConfirm;
-        // }
-
-        let userCopy = {
-            email : user.email,
-            password : user.password,
-            name : user.name,
-            phone : user.phone,
-            gender : user.gender
-        }
-        singUp(userCopy);
-        
-        let userLogIn = {
+        let userSignUP = {
             email: user.email,
-            password: user.password
+            password: user.password,
+            name: user.name,
+            phone: user.phone,
+            gender: user.gender
         }
-        setTimeout(signIn(userLogIn), 3000);
-        setTimeout(() => location.assign("../../index.html"), 1000);
+        singUp(userSignUP);
+
+        // let userLogIn = {
+        //     email: user.email,
+        //     password: user.password
+        // }
+        // setTimeout(signIn(userLogIn), 3000);
+         setTimeout(() => location.assign("../../index.html"), 1000);
+    } else {
+        handleTagDiv();
     }
 }
 
@@ -119,19 +115,29 @@ let singUp = (user) => {
 }
 
 //sign in user
-let signIn = (userLogIn) => {
-    let promises = axios({
-        url: 'https://shop.cyberlearn.vn/api/Users/signin',
-        method: 'POST',
-        data: userLogIn
-    })
-    promises.then((res) => {
-        console.log(res.data.message);
+// let signIn = (userLogIn) => {
+//     console.log('ngu');
+//     let promises = axios({
+//         url: 'https://shop.cyberlearn.vn/api/Users/signin',
+//         method: 'POST',
+//         data: userLogIn
+//     })
+//     promises.then((res) => {
+//         console.log(res.data.message);
 
-    })
-    promises.catch((err) => {
-        console.log(err.response.data);
-    })
+//     })
+//     promises.catch((err) => {
+//         console.log(err.response.data);
+//     })
+// }
+
+//handle display tag div validation 
+let handleTagDiv = () => {
+    let arrDisplayValidation = document.querySelectorAll('.form-group div');
+    for (let dp of arrDisplayValidation) {
+        dp.style.position = 'relative';
+        dp.style.top = 0;
+    }
 }
 
 

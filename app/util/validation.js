@@ -31,7 +31,7 @@ export let checkName = (value, selectorError, name)=> {
         document.querySelector(selectorError).innerHTML = '';
         return true;
     } else {
-        document.querySelector(selectorError).innerHTML = name + ' tat ca phai la ki tu';
+        document.querySelector(selectorError).innerHTML = name + ' tất cả phải là kí tự';
         return false;
     }
 }
@@ -44,7 +44,7 @@ export let checkNumber = (value, selectorError, name)=> {
         document.querySelector(selectorError).innerHTML = '';
         return true;
     } else {
-        document.querySelector(selectorError).innerHTML = name + ' tat ca phai la so';
+        document.querySelector(selectorError).innerHTML = name + ' tất cả phải là số';
         return false;
     }
 }
@@ -56,7 +56,7 @@ export let checkEmail = (value, selectorError, name) =>{
         document.querySelector(selectorError).innerHTML = '';
         return true;
     } else {
-        document.querySelector(selectorError).innerHTML = name + ' khong dung dinh dang example: abc@gamil.com';
+        document.querySelector(selectorError).innerHTML = name + ' không đúng định dạng example: abc@gamil.com';
         return false;
     }
 }
@@ -68,7 +68,7 @@ export let checkPassword = (value, selectorError, name) =>{
         document.querySelector(selectorError).innerHTML = '';
         return true;
     } else {
-        document.querySelector(selectorError).innerHTML = name + ' phai co so va chu, it nhat 1 ky tu viet hoa va 1 ki tu dat biet';
+        document.querySelector(selectorError).innerHTML = name + ' phải có cả số và chữ, ít nhất 1 ký tự viết hoa và 1 ký tự đặt biệt';
         return false;
     }
 }
@@ -76,7 +76,7 @@ export let checkPassword = (value, selectorError, name) =>{
 //check do dai
 export let checkLength = (value, selectorError, name, minLength, maxLength) =>{
     if (value.trim().length > maxLength || value.trim().length < minLength) {
-        document.querySelector(selectorError).innerHTML = name + ' do dai tu ' + minLength + ' den ' + maxLength;
+        document.querySelector(selectorError).innerHTML = name + ' độ dài từ ' + minLength + ' đến ' + maxLength;
         return false;
     }
     document.querySelector(selectorError).innerHTML = '';
@@ -90,7 +90,7 @@ export let checkDate = (value, selectorError, name)=>{
     if (regexDate.test(value)) {
         return true;
     } else {
-        document.querySelector(selectorError).inner = name + 'error';
+        document.querySelector(selectorError).inner = name + 'lỗi';
         return false;
     }
 }

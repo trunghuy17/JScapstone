@@ -15,27 +15,29 @@ html {
   margin: 0 auto;
 }
 
-header .header-container .header-top {
+header .header-top {
   background-color: #000;
+}
+header .header-top .container {
   color: #F7F7F7;
   padding: 5px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header .header-container .header-top .logo img {
+header .header-top .container .logo img {
   width: 100%;
 }
-header .header-container .header-top .contact {
+header .header-top .container .contact {
   display: flex;
   align-items: center;
 }
-header .header-container .header-top .contact .cart {
+header .header-top .container .contact .cart {
   display: flex;
   align-items: center;
   margin-right: 10px;
 }
-header .header-container .header-top .contact .cart .btnCart {
+header .header-top .container .contact .cart .btnCart {
   position: relative;
   width: 50px;
   height: 50px;
@@ -43,47 +45,60 @@ header .header-container .header-top .contact .cart .btnCart {
   border: none;
   outline: none;
 }
-header .header-container .header-top .contact .cart .btnCart img {
+header .header-top .container .contact .cart .btnCart img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-header .header-container .header-top .contact .cart .btnCart img:hover {
+header .header-top .container .contact .cart .btnCart img:hover {
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
-header .header-container .header-top .contact .cart span {
+header .header-top .container .contact .cart span {
   font-size: 30px;
   font-weight: 300;
 }
-header .header-container .header-top .login {
+header .header-top .container .login {
   font-size: 16px;
   font-weight: 300;
   text-decoration: none;
   color: #F5F5F5;
   margin-right: 20px;
 }
-header .header-container .header-top .register {
+header .header-top .container .register {
   font-size: 16px;
   font-weight: 300;
   text-decoration: none;
   color: #F5F5F5;
   margin-right: 20px;
 }
-header .header-container .header-bottom {
+header .header-bottom .container {
   padding: 0 30px;
 }
-header .header-container .header-bottom .navbar {
+header .header-bottom .container .navbar {
   background-color: #fff !important;
 }
-header .header-container .header-bottom .navbar .nav-item .nav-link {
+header .header-bottom .container .navbar .nav-item .nav-link {
   font-size: 20px;
   font-weight: 400;
   position: relative;
 }
 
+.active {
+  color: blue;
+}
+.active::before {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #AE18E2;
+}
+
 .register .container {
-  padding: 0 100px;
+  padding-left: 120px;
 }
 .register .container h1 {
   font-size: 40px;
@@ -91,45 +106,61 @@ header .header-container .header-bottom .navbar .nav-item .nav-link {
   margin-bottom: 62px;
 }
 .register .container form .row .form-group {
-  margin-bottom: 0;
+  margin-bottom: 50px;
+  position: relative;
 }
-.register .container form .row label {
-  margin-bottom: 0;
-  font-size: 30px;
-  font-weight: 400;
-}
-.register .container form .row .register-left {
-  margin-right: 100px;
-}
-.register .container form .row .register-left .form-group div {
-  height: 40px;
-  color: #FC0303;
-}
-.register .container form .row .register-left .form-group input {
+.register .container form .row .form-group input {
+  padding: 0 20px;
+  border: none;
   width: 100%;
   height: 50px;
-  transition: 0.2s ease;
-  background-color: white;
-  border: none;
   outline: none;
+  transition: 0.25s ease;
+  background: transparent;
   border-bottom: 3px solid #AE18E2;
   font-size: 30px;
   font-weight: 400;
 }
-.register .container form .row .register-right .form-group div {
-  height: 40px;
-  color: #FC0303;
-}
-.register .container form .row .register-right .form-group input {
-  width: 100%;
-  height: 50px;
-  background-color: white;
-  transition: 0.2s ease;
-  border: none;
-  outline: none;
+.register .container form .row .form-group input:focus {
   border-bottom: 3px solid #AE18E2;
+}
+.register .container form .row .form-group input:focus + label {
+  color: #AE18E2;
+  top: -25px;
+  margin: 0;
+  left: 0;
+  display: inline-block;
+  background-color: white;
+}
+.register .container form .row .form-group input:not(:placeholder-shown) + label {
+  color: #AE18E2;
+  top: -25px;
+  margin: 0;
+  left: 0;
+  display: inline-block;
+  background-color: white;
+}
+.register .container form .row .form-group label {
   font-size: 30px;
   font-weight: 400;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.25s ease;
+}
+.register .container form .row .form-group div {
+  height: 15px;
+  color: #FC0303;
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+.register .container form .row .register-right {
+  padding-left: 70px;
+}
+.register .container form .row .register-right .form-gender {
+  margin-top: 25px;
 }
 .register .container form .row .register-right .form-gender .gender {
   display: flex;
