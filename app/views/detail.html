@@ -6,7 +6,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="https://snkrvn.com/wp-content/uploads/2019/07/jordan-1-resell-value-prices-main6.gif" sizes="32x32">
+    <link rel="icon" href="https://snkrvn.com/wp-content/uploads/2019/07/jordan-1-resell-value-prices-main6.gif"
+        sizes="32x32">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -35,7 +36,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-dismiss="modal">Buy Now</button>
-                    <button type="button" class="btn btn-danger" id="deleteAll" data-dismiss="modal"> Delate All</button>
+                    <button type="button" class="btn btn-danger" id="deleteAll" data-dismiss="modal"> Delate
+                        All</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -46,11 +48,12 @@
 
 
     <header>
-        <div class="header-container">
-            <div class="header-top d">
+        <div class="header-top ">
+            <div class="container">
                 <a class="logo" href="../../index.html">
                     <img src="../../assets/images/logo.png" alt="logo">
                 </a>
+
                 <div class="contact">
                     <div class="cart">
                         <!-- Button trigger modal -->
@@ -64,12 +67,15 @@
                     <a href="../views/register.html" class="register">register</a>
                 </div>
             </div>
-            <div class="header-bottom">
+        </div>
+        <div class="header-bottom">
+            <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item ">
-                                <a class="nav-link active " href="../../index.html">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link active " href="../../index.html">Home <span
+                                        class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Men</a>
@@ -89,62 +95,68 @@
             </div>
         </div>
     </header>
+
+
     <main>
         <section class="productItem">
-            <div class="row">
-                <div class="productImg col-4 ">
-                    <!-- <img src="../../assets/images/item.png" alt=""> -->
-                </div>
-                <div class="productInfo col-5 ">
-                    <div class="prodName">
-                        <h2 id="nameItem">Product name</h2>
+            <div class="container ">
+                <div class="row">
+                    <div class="productImg col-4 ">
+                        <!-- <img src="../../assets/images/item.png" alt=""> -->
                     </div>
-                    <div class="prodDescrition">
-                        <p id="descriptionItem">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-                            pariatur sequi esse ducimus
-                            veritatis aspernatur totam inventore, tempore rem impedit illum qui a quae aperiam officiis,
-                            error repellat sunt nulla! ( Thuộc tính Description)</p>
-                    </div>
-                    <h5>Available size</h5>
-                    <div class="prodSize row ml-0" id="sizeItem">
-                        <!-- <div class="swapper-prodSize">
-                            <button class="size ">38</button>
+                    <div class="productInfo col-6 ">
+                        <div class="prodName">
+                            <h2 id="nameItem">Product name</h2>
                         </div>
-                        <div class="swapper-prodSize">
-                            <button class="size ">39</button>
+                        <div class="prodDescrition">
+                            <p id="descriptionItem">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
+                                pariatur sequi esse ducimus
+                                veritatis aspernatur totam inventore, tempore rem impedit illum qui a quae aperiam
+                                officiis,
+                                error repellat sunt nulla! ( Thuộc tính Description)</p>
                         </div>
-                        <div class="swapper-prodSize">
-                            <button class="size ">40</button>
+                        <h5>Available size</h5>
+                        <div class="prodSize row ml-0" id="sizeItem">
+                            <!-- <div class="swapper-prodSize">
+                                <button class="size ">38</button>
+                            </div>
+                            <div class="swapper-prodSize">
+                                <button class="size ">39</button>
+                            </div>
+                            <div class="swapper-prodSize">
+                                <button class="size ">40</button>
+                            </div>
+                            <div class="swapper-prodSize">
+                                <button class="size ">41</button>
+                            </div>-->
+                            <!-- <div class="swapper-prodSize activeSize">
+                                <button class="size " onclick="buyNow(1)">43</button>
+                            </div>  -->
                         </div>
-                        <div class="swapper-prodSize">
-                            <button class="size ">41</button>
-                        </div>-->
-                        <!-- <div class="swapper-prodSize activeSize">
-                            <button class="size " onclick="buyNow(1)">43</button>
-                        </div>  -->
-                    </div>
-                    <div class="prodPrice">
-                        <p id="priceItem">85$</p>
-                    </div>
-                    <div class="prodCount">
-                        <div class="swap-prodCount">
-                            <button id="downItem"> - </button>
+                        <div class="prodPrice">
+                            <p id="priceItem">85$</p>
                         </div>
-                        <div class="swapSp-prodCount">
-                            <span id="countItem">1</span>
+                        <div class="prodCount">
+                            <div class="swap-prodCount">
+                                <button id="downItem"> - </button>
+                            </div>
+                            <div class="swapSp-prodCount">
+                                <span id="countItem">1</span>
+                            </div>
+                            <div class="swap-prodCount">
+                                <button id="upItem"> + </button>
+                            </div>
                         </div>
-                        <div class="swap-prodCount">
-                            <button id="upItem"> + </button>
+                        <div class="btnAdd">
+                            <button id="btnAddToCart">
+                                Add to cart
+                            </button>
                         </div>
-                    </div>
-                    <div class="btnAdd">
-                        <button id="btnAddToCart">
-                            Add to cart
-                        </button>
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="productRelate">
             <div class="container">
                 <h2 class="text-center">- Relate Product - </h2>
