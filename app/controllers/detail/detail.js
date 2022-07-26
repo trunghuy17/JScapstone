@@ -41,7 +41,7 @@ let renderView = (product) => {
     let sizeItem = document.querySelector("#sizeItem");
     let price = document.querySelector("#priceItem");
 
-    img.innerHTML = `<img src="${product.image}"alt="" >`
+    img.innerHTML = `<img src="${product.image}"alt="" >`;
     name.innerHTML = product.name;
     description.innerHTML = product.description;
     let htmlSize = '';
