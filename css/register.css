@@ -213,3 +213,61 @@ input[type=radio]:checked ~ .check::before {
 input[type=radio]:checked ~ label {
   color: #AE18E2;
 }
+
+footer {
+  margin-top: 106px;
+}
+footer .footer-top {
+  padding: 20px 0 10px 0;
+  background-color: #F8F8F8;
+}
+footer .footer-top .container {
+  padding: 0 15px;
+}
+footer .footer-top .container h3 {
+  font-size: 30px;
+  font-weight: 700;
+}
+footer .footer-top .container ul {
+  text-decoration: none;
+  list-style: none;
+}
+footer .footer-top .container ul li {
+  font-size: 16px;
+  font-weight: 300;
+}
+footer .footer-top .container p {
+  font-size: 16px;
+  font-weight: 300;
+}
+footer .footer-top .container a {
+  color: #FC0303;
+  font-size: 16px;
+  font-weight: 200;
+}
+footer .footer-top .container .borderLeft {
+  border-left: 1px solid #cccccc;
+}
+footer .footer-bottom {
+  background-color: #DEDDDC;
+  padding: 10px 0;
+}
+footer .footer-bottom .container {
+  padding: 0 15px;
+}
+footer .footer-bottom .container h3 {
+  font-size: 30px;
+  font-weight: 700;
+}
+footer .footer-bottom .container p {
+  font-size: 16px;
+  font-weight: 300;
+}
+footer .footer-bottom .container a {
+  color: #FC0303;
+  font-size: 16px;
+  font-weight: 200;
+}
+footer .footer-bottom .container .borderLeft {
+  border-left: 1px solid #cccccc;
+}

@@ -218,4 +218,54 @@ input[type="radio"]:checked ~ label {
   color: $text-c1-pink;
 }
 
+footer {
+  margin-top: 106px;
+  .footer-top {
+    padding: 20px 0 10px 0;
+    background-color: $bg-c2-light;
+    .container {
+    padding: 0 15px;
+      h3 {
+        @include text($text-3xl, $text-bold);
+      }
+      ul {
+        text-decoration: none;
+        list-style: none;
+        li {
+          @include text($text-base, $text-light);
+        }
+      }
+      p {
+        @include text($text-base, $text-light);
+      }
+      a {
+        color: $text-c1-red;
+        @include text($text-base, $text-extraLight);
+      }
+      .borderLeft {
+        border-left: 1px solid #cccccc;
+      }
+    }
+  }
+  .footer-bottom {
+    background-color: $bg-c4-light;
+    padding: 10px 0;
+    .container {
+      padding: 0 15px;
+      h3 {
+        @include text($text-3xl, $text-bold);
+      }
+      p {
+        @include text($text-base, $text-light);
+      }
+      a {
+        color: $text-c1-red;
+        @include text($text-base, $text-extraLight);
+      }
+      .borderLeft {
+        border-left: 1px solid #cccccc;
+      }
+    }
+  }
+}
 

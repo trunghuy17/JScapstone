@@ -60,56 +60,79 @@ let validationError = (user) => {
                 }
             }
             if (classTag == 'passwordConfirm') {
-                console.log(classTag)
                 if (user[classTag] != user.password) {
+                    validation = false;
                     document.querySelector(`.${classTag}`).innerHTML = `nhập lại ${classTag}`;
-                    arrValidation.push('false');
+                    arrValidation.push(validation);
                 }
             }
             if (classTag == 'phone') {
-                validation=checkNumber(user[classTag], `.${classTag}`, classTag);
+                validation = checkNumber(user[classTag], `.${classTag}`, classTag);
                 if (!validation) {
                     arrValidation.push(validation);
                 }
             }
-        }else{
+        } else {
             arrValidation.push(validation);
         }
     }
-
-    console.log(arrValidation)
-    let check=true;
-    for (let value of arrValidation) {
-        if (value==false) {
-           check=false;
-           break;
-        }
-    }
-    let userCopy={...user};
-    if(userCopy.hasOwnProperty('passwordConfirm')){
-       delete userCopy.passwordConfirm;
-    }
+    let check = false;
+    check = arrValidation.find(item => item == false);
     if (check) {
+        // let userCopy = { ...user };
+        // if (userCopy.hasOwnProperty('passwordConfirm')) {
+        //     delete userCopy.passwordConfirm;
+        // }
+
+        let userCopy = {
+            email : user.email,
+            password : user.password,
+            name : user.name,
+            phone : user.phone,
+            gender : user.gender
+        }
         singUp(userCopy);
+        
+        let userLogIn = {
+            email: user.email,
+            password: user.password
+        }
+        setTimeout(signIn(userLogIn), 3000);
+        setTimeout(() => location.assign("../../index.html"), 1000);
     }
 }
 
+//sign up user
 let singUp = (user) => {
     let promises = axios({
         url: 'https://shop.cyberlearn.vn/api/Users/signup',
         method: 'POST',
-        data: user,
+        data: user
     })
     promises.then((res) => {
         let success = res.data.message;
         alert(success);
-        setTimeout(() =>{
-            
-        },3000);
     })
     promises.catch((err) => {
-       alert(err.response.data);
+        alert(err.response.data);
     })
 }
+
+//sign in user
+let signIn = (userLogIn) => {
+    let promises = axios({
+        url: 'https://shop.cyberlearn.vn/api/Users/signin',
+        method: 'POST',
+        data: userLogIn
+    })
+    promises.then((res) => {
+        console.log(res.data.message);
+
+    })
+    promises.catch((err) => {
+        console.log(err.response.data);
+    })
+}
+
 
 
