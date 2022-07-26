@@ -1,0 +1,65 @@
+
+.productRelate {
+    margin-top: 55px;
+    .container {
+      padding-left: 100px;
+      h2 {
+        @include text($text-4xl, $text-regular);
+      }
+      .prodItem {
+        margin-top: 89px;
+        .prodCard {
+          margin-bottom: 47px;
+          .card {
+            border: none;
+            width: 350px;
+          height: 400px;
+            background-color: $bg-c2-light;
+            img {
+              width: 220px;
+              height: 170px;
+              margin: auto;
+            }
+            .name {
+              @include text($text-24xl, $text-light);
+              line-height: 29px;
+              padding-left: 23px;
+            }
+            .shortDes {
+              @include text($text-2xl, $text-light);
+              line-height: 24px;
+              padding-left: 23px;
+              color: $text-c3-light;
+            }
+            .cardFooter {
+              display: flex;
+              align-items: center;
+              a{
+                width: 50%;
+                .buyProd {
+                  width: 100%;
+                  border: none;
+                  height: 64px;
+                  background-color: $bg-c1-brown;
+                  @include text($text-24xl, $text-extraLight);
+                  &:hover{
+                    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.58);
+                  }
+                }
+              }
+              .priceItem {
+                width: 50%;
+                height: 64px;
+                margin: 0;
+                @include text($text-24xl, $text-semiBold);
+                background-color: $bg-c4-light;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+          }
+        }
+      }
+    }
+}

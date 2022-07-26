@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.productRelate {
+  margin-top: 55px;
+}
+.productRelate .container {
+  padding-left: 100px;
+}
+.productRelate .container h2 {
+  font-size: 40px;
+  font-weight: 400;
+}
+.productRelate .container .prodItem {
+  margin-top: 89px;
+}
+.productRelate .container .prodItem .prodCard {
+  margin-bottom: 47px;
+}
+.productRelate .container .prodItem .prodCard .card {
+  border: none;
+  width: 350px;
+  height: 400px;
+  background-color: #F8F8F8;
+}
+.productRelate .container .prodItem .prodCard .card img {
+  width: 220px;
+  height: 170px;
+  margin: auto;
+}
+.productRelate .container .prodItem .prodCard .card .name {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 29px;
+  padding-left: 23px;
+}
+.productRelate .container .prodItem .prodCard .card .shortDes {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  padding-left: 23px;
+  color: #CBC9C9;
+}
+.productRelate .container .prodItem .prodCard .card .cardFooter {
+  display: flex;
+  align-items: center;
+}
+.productRelate .container .prodItem .prodCard .card .cardFooter a {
+  width: 50%;
+}
+.productRelate .container .prodItem .prodCard .card .cardFooter a .buyProd {
+  width: 100%;
+  border: none;
+  height: 64px;
+  background-color: #E1B067;
+  font-size: 24px;
+  font-weight: 200;
+}
+.productRelate .container .prodItem .prodCard .card .cardFooter a .buyProd:hover {
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
+}
+.productRelate .container .prodItem .prodCard .card .cardFooter .priceItem {
+  width: 50%;
+  height: 64px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  background-color: #DEDDDC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
