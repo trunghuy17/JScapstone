@@ -159,17 +159,18 @@ header .header-bottom .container .navbar .nav-item .nav-link {
 .register .container form .row .register-right {
   padding-left: 70px;
 }
-.register .container form .row .register-right .form-gender {
-  margin-top: 25px;
-}
 .register .container form .row .register-right .form-gender .gender {
   display: flex;
   align-items: center;
+  font-size: 30px;
+  font-weight: 400;
 }
 .register .container form .row .register-right .form-gender .form-checked {
   height: 100%;
 }
 .register .container form .row .register-right .form-gender .form-checked ul .type {
+  font-size: 30px;
+  font-weight: 400;
   display: block;
   position: relative;
   height: 100px;

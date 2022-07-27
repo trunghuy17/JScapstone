@@ -377,6 +377,11 @@ footer .footer-bottom .container .borderLeft {
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
   color: white;
 }
+.ontop:hover .top {
+  border: none;
+  outline: none;
+  color: white;
+}
 .ontop .top {
   position: absolute;
   top: 50%;
@@ -391,16 +396,6 @@ footer .footer-bottom .container .borderLeft {
   font-weight: 700;
 }
 .ontop .top:hover {
-  color: white;
-}
-
-.ontop:hover {
-  background: linear-gradient(270deg, rgba(62, 32, 248, 0.9) 5.14%, #D017EE 89.71%);
-}
-
-.ontop:hover .top {
-  border: none;
-  outline: none;
   color: white;
 }
 
