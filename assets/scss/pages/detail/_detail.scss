@@ -354,6 +354,11 @@ footer {
     background: $bg-c2-linear;
     box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
     color: white;
+    .top {
+      border: none;
+      outline: none;
+      color: white;
+    }
   }
   .top {
     position: absolute;
@@ -370,14 +375,6 @@ footer {
       color: white;
     }
   }
-}
-.ontop:hover {
-  background: $bg-c2-linear;
-}
-.ontop:hover .top {
-  border: none;
-  outline: none;
-  color: white;
 }
 
 .activeSize {

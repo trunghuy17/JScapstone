@@ -152,15 +152,16 @@ header {
         .register-right {
           padding-left: 70px;
           .form-gender {
-            margin-top: 25px;
             .gender {
               display: flex;
               align-items: center;
+              @include text($text-3xl,$text-regular);
             }
             .form-checked {
               height: 100%;
               ul {
                 .type {
+                  @include text($text-3xl,$text-regular);
                   display: block;
                   position: relative;
                   height: 100px;
