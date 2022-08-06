@@ -1,65 +1,277 @@
+header {
+  .header-top {
+    background-color: $bg-c1-dark;
+
+    .container {
+      color: $text-c2-light;
+      padding: 5px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .logo {
+        img {
+          width: 100%;
+        }
+      }
+
+      .contact {
+        display: flex;
+        align-items: center;
+
+        .cart {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+
+          .btnCart {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+
+            img {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+
+              &:hover {
+                box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+              }
+            }
+          }
+
+          span {
+            font-size: $text-3xl;
+            font-weight: $text-light;
+          }
+        }
+      }
+
+      .login {
+        font-size: $text-base;
+        font-weight: $text-light;
+        text-decoration: none;
+        color: $text-c1-light;
+        margin-right: 20px;
+      }
+
+      .register {
+        font-size: $text-base;
+        font-weight: $text-light;
+        text-decoration: none;
+        color: $text-c1-light;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .header-bottom {
+    .container {
+      padding: 0 30px;
+
+      .navbar {
+        background-color: $bg-c1-light  !important;
+
+        .nav-item {
+          .nav-link {
+            font-size: $text-2xl;
+            font-weight: $text-regular;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}
+
+.carousel-custom {
+  position: relative;
+
+
+  .img-back {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .carousel-item-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .carousel-indicators {
+    li {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+  }
+
+  .carousel-control-prev {
+    img {
+      position: absolute;
+      left: 20px;
+      top: 175px;
+      width: 70px;
+    }
+  }
+
+  .carousel-control-next {
+    img {
+      position: absolute;
+      left: 147px;
+      top: 175px;
+      width: 70px;
+    }
+  }
+}
+
 
 .productRelate {
-    margin-top: 55px;
-    .container {
-      padding-left: 100px;
-      h2 {
-        @include text($text-4xl, $text-regular);
-      }
-      .prodItem {
-        margin-top: 89px;
-        .prodCard {
-          margin-bottom: 47px;
-          .card {
-            border: none;
-            width: 350px;
+  margin-top: 55px;
+
+  .container {
+    padding-left: 100px;
+
+    h2 {
+      @include text($text-4xl, $text-regular);
+    }
+
+    .prodItem {
+      margin-top: 89px;
+
+      .prodCard {
+        margin-bottom: 47px;
+
+        .card {
+          border: none;
+          width: 350px;
           height: 400px;
-            background-color: $bg-c2-light;
-            img {
-              width: 220px;
-              height: 170px;
-              margin: auto;
-            }
-            .name {
-              @include text($text-24xl, $text-light);
-              line-height: 29px;
-              padding-left: 23px;
-            }
-            .shortDes {
-              @include text($text-2xl, $text-light);
-              line-height: 24px;
-              padding-left: 23px;
-              color: $text-c3-light;
-            }
-            .cardFooter {
-              display: flex;
-              align-items: center;
-              a{
-                width: 50%;
-                .buyProd {
-                  width: 100%;
-                  border: none;
-                  height: 64px;
-                  background-color: $bg-c1-brown;
-                  @include text($text-24xl, $text-extraLight);
-                  &:hover{
-                    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.58);
-                  }
+          background-color: $bg-c2-light;
+
+          img {
+            width: 220px;
+            height: 170px;
+            margin: auto;
+          }
+
+          .name {
+            @include text($text-24xl, $text-light);
+            line-height: 29px;
+            padding-left: 23px;
+          }
+
+          .shortDes {
+            @include text($text-2xl, $text-light);
+            line-height: 24px;
+            padding-left: 23px;
+            color: $text-c3-light;
+          }
+
+          .cardFooter {
+            display: flex;
+            align-items: center;
+
+            a {
+              width: 50%;
+
+              .buyProd {
+                width: 100%;
+                border: none;
+                height: 64px;
+                background-color: $bg-c1-brown;
+                @include text($text-24xl, $text-extraLight);
+
+                &:hover {
+                  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.58);
                 }
               }
-              .priceItem {
-                width: 50%;
-                height: 64px;
-                margin: 0;
-                @include text($text-24xl, $text-semiBold);
-                background-color: $bg-c4-light;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              }
+            }
+
+            .priceItem {
+              width: 50%;
+              height: 64px;
+              margin: 0;
+              @include text($text-24xl, $text-semiBold);
+              background-color: $bg-c4-light;
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
           }
         }
       }
     }
+  }
+}
+
+footer {
+  margin-top: 106px;
+
+  .footer-top {
+    padding: 20px 0 10px 0;
+    background-color: $bg-c2-light;
+
+    .container {
+      padding: 0 15px;
+
+      h3 {
+        @include text($text-3xl, $text-bold);
+      }
+
+      ul {
+        text-decoration: none;
+        list-style: none;
+
+        li {
+          @include text($text-base, $text-light);
+        }
+      }
+
+      p {
+        @include text($text-base, $text-light);
+      }
+
+      a {
+        color: $text-c1-red;
+        @include text($text-base, $text-extraLight);
+      }
+
+      .borderLeft {
+        border-left: 1px solid #cccccc;
+      }
+    }
+  }
+
+  .footer-bottom {
+    background-color: $bg-c4-light;
+    padding: 10px 0;
+
+    .container {
+      padding: 0 15px;
+
+      h3 {
+        @include text($text-3xl, $text-bold);
+      }
+
+      p {
+        @include text($text-base, $text-light);
+      }
+
+      a {
+        color: $text-c1-red;
+        @include text($text-base, $text-extraLight);
+      }
+
+      .borderLeft {
+        border-left: 1px solid #cccccc;
+      }
+    }
+  }
 }
